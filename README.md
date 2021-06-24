@@ -43,7 +43,7 @@ Ref)  https://github.com/lukemelas/EfficientNet-PyTorch
 Explainable AI기법에는 Backpropagation-Based , Approximation-Based method 등등 여러가지 기법이 
 존재한다. 본 프로젝트에서는 가장 효율적이고 적용하기 쉬운 Backpropagation based method를 사용한다.
 또한 CNN구조를 바꾸지 않아도 되는 Grad-CAM기법을 이용해 설명가능한 output을 낸다.
-###  Grad-CAM
+### 3.1 Grad-CAM
 ```python
         from pytorch_grad_cam import GradCAM
         cam = methods[args.method](model=model,
@@ -67,6 +67,7 @@ Ref) https://github.com/jacobgil/pytorch-grad-cam
 
 
 ## 4.Result
-### Confusion Matrix
+### 4.1 Confusion Matrix
+![Confusion matrix](https://user-images.githubusercontent.com/55542020/123218132-50613500-d506-11eb-80aa-994b33c85e29.png)
 
 
