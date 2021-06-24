@@ -71,3 +71,5 @@ Ref) https://github.com/jacobgil/pytorch-grad-cam
 ![Confusion matrix](https://user-images.githubusercontent.com/55542020/123218132-50613500-d506-11eb-80aa-994b33c85e29.png)
 
 
+### 4.2 Result Images
+![Result1](https://user-images.githubusercontent.com/55542020/123218381-a0d89280-d506-11eb-91a5-6e3b64a0306d.png)
