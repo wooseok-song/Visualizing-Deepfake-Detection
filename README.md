@@ -62,7 +62,7 @@ Explainable AI기법에는 Backpropagation-Based , Approximation-Based method �
         cv2.imwrite(save_path+str('(Real)res_')+name,cam_image)
 
 ```
-
+Ref) https://github.com/jacobgil/pytorch-grad-cam
 
 
 
