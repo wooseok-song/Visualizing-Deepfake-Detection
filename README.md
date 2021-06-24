@@ -4,7 +4,7 @@ Visualizing Deep Fake Detection
 Inha univ. Capstone Design      
 
 
-##1.Introduction
+## 1.Introduction
 최근 Deep Fake를 이용한 범죄들이 증가하면서  Deep Fake Detection의 역할이 중요해 졌다. 
 관련 자료들을 찾아보던중 기존의 기법들은 단순히 영상의 Real/Fake만을 판단한다는것을 알게
 되었고 왜 이러한 판단을 냈는지에 대한 설명이 부족한 사실을 알게 되었다.
@@ -13,9 +13,9 @@ Inha univ. Capstone Design
 
 
 
-##2. Training
+## 2. Training
 
-###2.1 Dataset
+### 2.1 Dataset
 
 
 
@@ -23,9 +23,9 @@ Public Dataset From Face-Forensics++
 Video를 Frame단위로 끊어서 데이터 셋 구축
 
 
-###2.2 Model
+### 2.2 Model
 
-###EfficientNet-b0
+### EfficientNet-b0
 
 ```python
 from efficientnet_pytorch import EfficientNet
@@ -36,14 +36,14 @@ EfficientNet-b0를 이용해 Training 진행
 
 Ref)  https://github.com/lukemelas/EfficientNet-PyTorch
 
-###2.3 Hyperparameter
+###  2.3 Hyperparameter
 
 
-##3. Visualizing
+##  3. Visualizing
 Explainable AI기법에는 Backpropagation-Based , Approximation-Based method 등등 여러가지 기법이 
 존재한다. 본 프로젝트에서는 가장 효율적이고 적용하기 쉬운 Backpropagation based method를 사용한다.
 또한 CNN구조를 바꾸지 않아도 되는 Grad-CAM기법을 이용해 설명가능한 output을 낸다.
-###Grad-CAM
+### 3.1 Grad-CAM
 ```python
         from pytorch_grad_cam import GradCAM
         cam = methods[args.method](model=model,
@@ -62,10 +62,14 @@ Explainable AI기법에는 Backpropagation-Based , Approximation-Based method �
         cv2.imwrite(save_path+str('(Real)res_')+name,cam_image)
 
 ```
+Ref) https://github.com/jacobgil/pytorch-grad-cam
 
 
 
+## 4.Result
+### 4.1 Confusion Matrix
+![Confusion matrix](https://user-images.githubusercontent.com/55542020/123218132-50613500-d506-11eb-80aa-994b33c85e29.png)
 
-##4.Result
 
-
+### 4.2 Result Images
+![Result1](https://user-images.githubusercontent.com/55542020/123218381-a0d89280-d506-11eb-91a5-6e3b64a0306d.png)
