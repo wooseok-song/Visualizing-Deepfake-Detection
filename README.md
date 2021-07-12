@@ -4,7 +4,7 @@ Visualizing Deep Fake Detection
 Inha univ. Capstone Design      
 
 
-## 1.Introduction
+## 1.Introduction</br>
   최근 Deep Fake를 이용한 범죄들이 증가하면서  Deep Fake Detection의 역할이 중요해 졌다. 
 관련 자료들을 찾아보던중 기존의 기법들은 단순히 영상의 Real/Fake만을 판단한다는것을 알게
 되었고 왜 이러한 판단을 냈는지에 대한 설명이 부족한 사실을 알게 되었다.
@@ -15,20 +15,20 @@ Inha univ. Capstone Design
 
 
 
-### 1.1 Face Manipulation Method
+### 1.1 Face Manipulation Method</br>
 + Face Attribute:여러가지 얼굴 속성(머리 색, 안경 착용, 수염 등)을 적용한 기법
 
 + Face Swap: Source의 얼굴을 Target의 얼굴로 바꾼 기법 우리가 잘 알고 있는 Deep Fake가 이 기법으로 생성된다.
 + Face Expression: Source의 표정을 Target의 표정으로 바꾼 기법. 입모양을 바꿔주는 기법.
 
-### 1.2 System Flow
+### 1.2 System Flow</br>
 
 ![image](https://user-images.githubusercontent.com/55542020/125224617-eb308080-e308-11eb-9921-748fbcfe894f.png)
 
 </br></br></br>
-## 2. Training
+## 2. Training</br>
 
-### 2.1 Dataset
+### 2.1 Dataset</br>
 
 - Public Dataset From Face-Forensics++ videos  해당 데이터셋의 일부를 kaggle에서 다운로드 받아 Frame단위로 끊어서 데이터 셋 구축<br/> 
   ref)https://www.kaggle.com/sorokin/faceforensics
@@ -52,9 +52,9 @@ ref)https://apps.apple.com/us/app/faceapp-ai-face-editor/id1180884341
 |Real|Face Forensics++(Original Image) |401장|
 
 
-### 2.2 Model
+### 2.2 Model</br>
 
-### EfficientNet-b0
+### EfficientNet-b0</br>
 
 ```python
 from efficientnet_pytorch import EfficientNet
@@ -65,7 +65,7 @@ EfficientNet-b0를 이용해 Training 진행
 
 Ref)  https://github.com/lukemelas/EfficientNet-PyTorch
 
-###  2.3 HyperParameter
+###  2.3 HyperParameter</br>
 
 | Setting | what | with |
 |:------:|:------:|------|
@@ -76,7 +76,7 @@ Ref)  https://github.com/lukemelas/EfficientNet-PyTorch
 |Optimizer|ADAM||
 
 
-###  2.4 Train Result
+###  2.4 Train Result</br>
 1. Accuracy graph
 
 
@@ -88,11 +88,11 @@ Ref)  https://github.com/lukemelas/EfficientNet-PyTorch
 ![image](https://user-images.githubusercontent.com/55542020/125224778-2763e100-e309-11eb-9222-f91cfadf78b4.png)
 
 
-##  3. Visualization
+##  3. Visualization</br>
 Explainable AI기법에는 Backpropagation-Based , Approximation-Based method 등등 여러가지 기법이 
 존재한다. 본 프로젝트에서는 가장 효율적이고 적용하기 쉬운 Backpropagation based method를 사용한다.
-또한 CNN구조를 바꾸지 않아도 되는 Grad-CAM기법을 이용해 설명가능한 output을 낸다.
-### 3.1 Grad-CAM
+또한 CNN구조를 바꾸지 않아도 되는 Grad-CAM기법을 이용해 설명가능한 output을 낸다.</br>
+### 3.1 Grad-CAM</br>
 ```python
         from pytorch_grad_cam import GradCAM
         cam = methods[args.method](model=model,
@@ -115,8 +115,8 @@ Ref) https://github.com/jacobgil/pytorch-grad-cam
 
 
 
-## 4.Result
-### 4.1 Result Images
+## 4.Result</br>
+### 4.1 Result Images</br>
 ![Result1](https://user-images.githubusercontent.com/55542020/123218381-a0d89280-d506-11eb-91a5-6e3b64a0306d.png)
 
 1. 설명: (a)는 조작되지 않은 원본 이미지, (b)는 Face Attribute 기법으로 조작된 이미지, (c)는 결과를 시각화 한 이미지이다. (a)와 (b)를 비교해보면 (b)
@@ -125,7 +125,7 @@ Ref) https://github.com/jacobgil/pytorch-grad-cam
 (c)이미지를 보면 현재 머리카락에 Heat-Map이 형성된 것을 확인할 수 있다. 즉 모델이 (b)이미지가 Face Attribute 기법으로
 조작되었다고 판단한 뒤 (c)  이미지와 같이 머리 부분이 조작되었다는 사실을 설명해준다.
 
-### 4.2 Confusion Matrix
+### 4.2 Confusion Matrix</br>
 ![Confusion matrix](https://user-images.githubusercontent.com/55542020/123218132-50613500-d506-11eb-80aa-994b33c85e29.png)
 
 
