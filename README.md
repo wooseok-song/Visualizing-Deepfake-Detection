@@ -51,7 +51,7 @@ ref)https://apps.apple.com/us/app/faceapp-ai-face-editor/id1180884341
 |Face Expression|Face Forensics++(Neural Texture) |401장|
 |Real|Face Forensics++(Original Image) |401장|
 
-
+</br>
 ### 2.2 Model</br>
 
 ### EfficientNet-b0</br>
