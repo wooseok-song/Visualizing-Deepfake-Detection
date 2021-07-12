@@ -23,6 +23,7 @@ Inha univ. Capstone Design
 
 ### 1.2 System Flow
 
+![image](https://user-images.githubusercontent.com/55542020/125224617-eb308080-e308-11eb-9921-748fbcfe894f.png)
 
 
 ## 2. Training
@@ -122,6 +123,8 @@ Ref) https://github.com/jacobgil/pytorch-grad-cam
 
 ### 4.2 Confusion Matrix
 ![Confusion matrix](https://user-images.githubusercontent.com/55542020/123218132-50613500-d506-11eb-80aa-994b33c85e29.png)
+
+
 위 결과를 통해서 Predicition의 정도를 확인 할 수 있다.
 
 
