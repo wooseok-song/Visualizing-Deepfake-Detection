@@ -13,14 +13,42 @@ Inha univ. Capstone Design
 
 
 
+
+
+### 1.1 Face Manipulation Method
++ Face Attribute:여러가지 얼굴 속성(머리 색, 안경 착용, 수염 등)을 적용한 기법
+
++ Face Swap: Source의 얼굴을 Target의 얼굴로 바꾼 기법 우리가 잘 알고 있는 Deep Fake가 이 기법으로 생성된다.
++ Face Expression: Source의 표정을 Target의 표정으로 바꾼 기법. 입모양을 바꿔주는 기법.
+
+### 1.2 System Flow
+
+
+
 ## 2. Training
 
 ### 2.1 Dataset
 
+- Public Dataset From Face-Forensics++ videos  해당 데이터셋의 일부를 kaggle에서 다운로드 받아 Frame단위로 끊어서 데이터 셋 구축<br/> 
+  ref)https://www.kaggle.com/sorokin/faceforensics
+  
+  
+
+   
+
+- Face Attribute Case 경우에는 데이터 셋이 존재하지 않아 Face APP을 이용해 데이터 셋 수집<br/>
+ref)https://apps.apple.com/us/app/faceapp-ai-face-editor/id1180884341
+  
 
 
-Public Dataset From Face-Forensics++ 
-Video를 Frame단위로 끊어서 데이터 셋 구축
+- DataSet Spec
+
+|Label|How|Images|
+|:-------:|:----|-----|
+|Face Attribute| Face APP을 이용해 직접 만듦 |410장|
+|Face Swap| Face Forensics++(Face Swap) |401장|
+|Face Expression|Face Forensics++(Neural Texture) |401장|
+|Real|Face Forensics++(Original Image) |401장|
 
 
 ### 2.2 Model
@@ -36,10 +64,26 @@ EfficientNet-b0를 이용해 Training 진행
 
 Ref)  https://github.com/lukemelas/EfficientNet-PyTorch
 
-###  2.3 Hyperparameter
+###  2.3 HyperParameter
+
+| Setting | what | with |
+|:------:|:------:|------|
+|Epoch|200||
+|Learning Rate|0.0005||
+|Batch size|256||
+|Loss| Cross Entropy Loss||
+|Optimizer|ADAM||
 
 
-##  3. Visualizing
+###  2.4 Train Result
+1. Accuracy
+
+
+2. loss
+
+
+
+##  3. Visualization
 Explainable AI기법에는 Backpropagation-Based , Approximation-Based method 등등 여러가지 기법이 
 존재한다. 본 프로젝트에서는 가장 효율적이고 적용하기 쉬운 Backpropagation based method를 사용한다.
 또한 CNN구조를 바꾸지 않아도 되는 Grad-CAM기법을 이용해 설명가능한 output을 낸다.
@@ -70,8 +114,14 @@ Ref) https://github.com/jacobgil/pytorch-grad-cam
 ### 4.1 Result Images
 ![Result1](https://user-images.githubusercontent.com/55542020/123218381-a0d89280-d506-11eb-91a5-6e3b64a0306d.png)
 
+1. 설명: (a)는 조작되지 않은 원본 이미지, (b)는 Face Attribute 기법으로 조작된 이미지, (c)는 결과를 시각화 한 이미지이다. (a)와 (b)를 비교해보면 (b)
+이미지에서는 머리 색이 금색에서 검은색으로 조작된 것을 확인할 수 있다. 이미지를 위 모델에 넣어주게 되면 (c)번과 같은 Heat-Map 형태의
+이미지가 출력으로 나온다. 이때 Heat-Map의 색이 빨간색에 가까워 지면 해당 영역이 예측에 가장 영향을 많이 준 영역을 의미한다.
+(c)이미지를 보면 현재 머리카락에 Heat-Map이 형성된 것을 확인할 수 있다. 즉 모델이 (b)이미지가 Face Attribute 기법으로
+조작되었다고 판단한 뒤 (c)  이미지와 같이 머리 부분이 조작되었다는 사실을 설명해준다.
+
 ### 4.2 Confusion Matrix
 ![Confusion matrix](https://user-images.githubusercontent.com/55542020/123218132-50613500-d506-11eb-80aa-994b33c85e29.png)
-
+위 결과를 통해서 Predicition의 정도를 확인 할 수 있다.
 
 
