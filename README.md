@@ -25,7 +25,7 @@ Inha univ. Capstone Design
 
 ![image](https://user-images.githubusercontent.com/55542020/125224617-eb308080-e308-11eb-9921-748fbcfe894f.png)
 
-
+</br></br></br>
 ## 2. Training
 
 ### 2.1 Dataset
