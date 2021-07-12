@@ -5,7 +5,7 @@ Inha univ. Capstone Design
 
 
 ## 1.Introduction
-최근 Deep Fake를 이용한 범죄들이 증가하면서  Deep Fake Detection의 역할이 중요해 졌다. 
+  최근 Deep Fake를 이용한 범죄들이 증가하면서  Deep Fake Detection의 역할이 중요해 졌다. 
 관련 자료들을 찾아보던중 기존의 기법들은 단순히 영상의 Real/Fake만을 판단한다는것을 알게
 되었고 왜 이러한 판단을 냈는지에 대한 설명이 부족한 사실을 알게 되었다.
 본 프로젝트에서는 Real/Fake를 판단할 뿐만 아니라 왜 그러한 Prediction을 냈는지
