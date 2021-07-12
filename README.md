@@ -77,11 +77,13 @@ Ref)  https://github.com/lukemelas/EfficientNet-PyTorch
 
 
 ###  2.4 Train Result
-1. Accuracy
+1. Accuracy graph
+
+
 ![image](https://user-images.githubusercontent.com/55542020/125224773-25018700-e309-11eb-8831-db2444a9b7b8.png)
 
 
-2. loss
+2. Loss graph
 
 ![image](https://user-images.githubusercontent.com/55542020/125224778-2763e100-e309-11eb-9222-f91cfadf78b4.png)
 
